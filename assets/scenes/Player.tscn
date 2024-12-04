@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://vb23ciu5eegh"]
+
+[ext_resource type="Script" path="res://src/Player.gd" id="1_ennt3"]
+[ext_resource type="PackedScene" uid="uid://cqk786vovvdg0" path="res://assets/scenes/StateMachine.tscn" id="2_4qddg"]
+[ext_resource type="PackedScene" uid="uid://b4vovrf86akpi" path="res://assets/scenes/PlayerRunState.tscn" id="3_5cwuu"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ennt3")
+
+[node name="StateMachine" parent="." instance=ExtResource("2_4qddg")]
+
+[node name="PlayerRunState" parent="StateMachine" instance=ExtResource("3_5cwuu")]
