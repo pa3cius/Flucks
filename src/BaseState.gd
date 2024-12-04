@@ -1,5 +1,6 @@
 class_name BaseState extends Node
 
+@onready var state_machine : StateMachine = get_parent()
 # base state class, all other states should extend this class
 var parent : Node
 
@@ -15,4 +16,4 @@ func exit_state() -> void:
 
 
 func process_state(delta : float) -> void:
-	push_error("process_state() not implemented in " + self.name)
+	pass

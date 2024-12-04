@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://vb23ciu5eegh"]
+[gd_scene load_steps=8 format=3 uid="uid://vb23ciu5eegh"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_ennt3"]
 [ext_resource type="PackedScene" uid="uid://cqk786vovvdg0" path="res://assets/scenes/StateMachine.tscn" id="2_4qddg"]
 [ext_resource type="PackedScene" uid="uid://b4vovrf86akpi" path="res://assets/scenes/PlayerRunState.tscn" id="3_5cwuu"]
+[ext_resource type="PackedScene" uid="uid://cp7kafrklkwa5" path="res://assets/scenes/PlayerIdleState.tscn" id="4_qrsmn"]
+[ext_resource type="PackedScene" uid="uid://c3a5xl5lwxvts" path="res://assets/scenes/hitbox_component.tscn" id="5_144wg"]
+[ext_resource type="PackedScene" uid="uid://v2cu0getotjl" path="res://assets/scenes/PlayerAirborneState.tscn" id="5_fh50u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3cpm"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ennt3")
@@ -10,3 +15,13 @@ script = ExtResource("1_ennt3")
 [node name="StateMachine" parent="." instance=ExtResource("2_4qddg")]
 
 [node name="PlayerRunState" parent="StateMachine" instance=ExtResource("3_5cwuu")]
+
+[node name="PlayerIdleState" parent="StateMachine" instance=ExtResource("4_qrsmn")]
+
+[node name="PlayerAirborneState" parent="StateMachine" instance=ExtResource("5_fh50u")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("hitbox") instance=ExtResource("5_144wg")]
+hitbox = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_l3cpm")
