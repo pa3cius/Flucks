@@ -12,9 +12,9 @@
   - A dash that can deflect bullets
   - Sword that deals damage
   - Utility weapon with a range of ammo
-    - Knockback blasts
-    - Reverse time polarity of bulles
-    - Slow down enemies in time
+	- Knockback blasts
+	- Reverse time polarity of bulles
+	- Slow down enemies in time
 
 ## Enemies
 
