@@ -1,7 +1,8 @@
 class_name StateMachine extends Node
 
-var current_state : BaseState = null
-var parent_enum = get_parent().get_enum()
+var current_state : BaseState
+@onready var parent_enum = get_parent().get_state_enum()
+@onready var parent_state_dict = get_parent().get_state_dict()
 
 func _ready() -> void:
 	for child in get_children():
@@ -10,7 +11,7 @@ func _ready() -> void:
 			
 # In the state machine script
 func transition_to_state(state_enum):
-	var state = parent_enum[state_enum]
+	var state = parent_state_dict[state_enum]
 	transition_to(state)
 
 

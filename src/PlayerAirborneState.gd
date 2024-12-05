@@ -12,16 +12,13 @@ func exit_state() -> void:
 
 func process_state(delta : float) -> void:
 	# left and right movement
-	print("moving")
 	if !parent.is_on_floor():
-		parent.velocity += parent.get_gravity()
+		parent.velocity += parent.get_gravity() * delta
 	else:
 		if parent.velocity.x:
-			state_machine.transition_to_state(parent.states.PLAYERRUNSTATE)
+			state_machine.transition_to_state(state_machine.parent_enum.PLAYERGROUNDEDSTATE)
 		else:
-			state_machine.transition_to_state(parent.states.PLAYERIDLESTATE)
+			state_machine.transition_to_state(state_machine.parent_enum.PLAYERIDLESTATE)
 	var direction := Input.get_axis("player_left", "player_right")
 	parent.velocity = Vector2(parent.SPEED * direction * delta, parent.velocity.y)
 	parent.move_and_slide()
-	if Input.is_action_just_pressed("player_jump") and double_jumped:
-		state_machine.transition_to_state(parent.states.PLAYERJUMPSTATE)
