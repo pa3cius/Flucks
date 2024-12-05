@@ -4,7 +4,7 @@ var double_jumped = false
 
 
 func enter_state() -> void:
-	pass
+	double_jumped = false
 	# parent.animation_player.play("")
 
 func exit_state() -> void:
