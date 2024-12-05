@@ -3,7 +3,7 @@ class_name PlayerAirborneState extends BaseState
 var double_jumped = false
 
 func enter_state() -> void:
-	pass
+	double_jumped = false
 	# parent.animation_player.play("")
 
 func exit_state() -> void:
@@ -21,9 +21,10 @@ func process_state(delta : float) -> void:
 			state_machine.transition_to_state(state_machine.parent_enum.PLAYERIDLESTATE)
 	var direction := Input.get_axis("player_left", "player_right")
 	#parent.velocity += Vector2(0, parent.velocity.y)
-	
 	#moving in the space
 	var target_speed = parent.SPEED * direction
 	parent.velocity.x = lerp(parent.velocity.x, target_speed, 0.2)
-
+	if Input.is_action_just_pressed("player_jump") and !double_jumped:
+		parent.velocity.y = parent.JUMP_STRENGTH * -1 
+		double_jumped = true
 	parent.move_and_slide()
