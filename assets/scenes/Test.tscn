@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://vb23ciu5eegh" path="res://assets/scenes/Player.tscn" id="1_n1p1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6iw8"]
-size = Vector2(1152, 20)
+size = Vector2(4752, 9)
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,7 +12,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(577, 610)
+position = Vector2(701, 595.5)
 shape = SubResource("RectangleShape2D_f6iw8")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]

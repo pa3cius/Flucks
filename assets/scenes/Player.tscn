@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vb23ciu5eegh"]
+[gd_scene load_steps=13 format=3 uid="uid://vb23ciu5eegh"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_ennt3"]
 [ext_resource type="PackedScene" uid="uid://cqk786vovvdg0" path="res://assets/scenes/StateMachine.tscn" id="2_4qddg"]
@@ -7,8 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://c3a5xl5lwxvts" path="res://assets/scenes/hitbox_component.tscn" id="5_144wg"]
 [ext_resource type="PackedScene" uid="uid://b4vovrf86akpi" path="res://assets/scenes/PlayerGroundedState.tscn" id="5_ewyuu"]
 [ext_resource type="PackedScene" uid="uid://v2cu0getotjl" path="res://assets/scenes/PlayerAirborneState.tscn" id="5_fh50u"]
+[ext_resource type="Texture2D" uid="uid://crvknjdf0k5r8" path="res://assets/Images/ninja_gestures1.png" id="8_r6umv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3cpm"]
+size = Vector2(39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbo1b"]
+atlas = ExtResource("8_r6umv")
+region = Rect2(20, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt0nj"]
+atlas = ExtResource("8_r6umv")
+region = Rect2(132, 0, 112, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5ptk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbo1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt0nj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
 collision_mask = 14
@@ -18,6 +42,7 @@ SPEED = 200.0
 MAX_SPEED = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 1)
 shape = SubResource("RectangleShape2D_l3cpm")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_4qddg")]
@@ -33,3 +58,7 @@ shape = SubResource("RectangleShape2D_l3cpm")
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("hitbox") instance=ExtResource("5_144wg")]
 collision_mask = 5
 hitbox = NodePath("../CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n5ptk")
+frame_progress = 0.579792

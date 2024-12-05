@@ -1,6 +1,7 @@
 class_name StateMachine extends Node
 
 var current_state : BaseState
+
 @onready var parent_enum = get_parent().get_state_enum()
 @onready var parent_state_dict = get_parent().get_state_dict()
 
@@ -27,5 +28,4 @@ func transition_to(new_state: String):
 
 func _process(delta) -> void:
 	if current_state:
-		print(current_state)
 		current_state.process_state(delta)
