@@ -9,6 +9,8 @@ func exit_state() -> void:
 	# TODO: add animations
 	pass
 func process_state(delta : float) -> void:
+	if !parent.is_on_floor():
+		state_machine.transition_to_state(state_machine.parent_enum.PLAYERAIRBORNESTATE)
 	if Input.is_action_just_pressed("player_left") or Input.is_action_just_pressed("player_right"):
 		state_machine.transition_to_state(state_machine.parent_enum.PLAYERGROUNDEDSTATE)
 	if Input.is_action_just_pressed("player_jump"):
