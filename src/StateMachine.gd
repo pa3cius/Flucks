@@ -27,4 +27,5 @@ func transition_to(new_state: String):
 
 func _process(delta) -> void:
 	if current_state:
+		print(current_state)
 		current_state.process_state(delta)
