@@ -3,6 +3,8 @@ class_name Player extends CharacterBody2D
 # Has idle, grounded, airborne, and dashing state
 @export var state_machine : StateMachine
 @export var SPEED := 300.0
+@export var MAX_SPEED := 300.0
+
 @export var JUMP_STRENGTH := 400.0
 @export var DOUBLE_JUMP_STRENGTH := 300.0
 
@@ -21,6 +23,10 @@ var states_dict = {
 
 func _ready() -> void:
 	state_machine.set_initial_state(states_dict[player_states.PLAYERAIRBORNESTATE])
+
+#func _process(delta: float) -> void:
+	#print()
+
 
 func get_state_enum() -> Dictionary:
 	return player_states
