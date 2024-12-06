@@ -15,10 +15,19 @@ run/main_scene="res://assets/scenes/Test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TimeControlComponent="*res://src/TimeControlComponent.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+time_puppet="all things that should have their time flow changed"
+player="kinda self explanatory init"
 
 [input]
 

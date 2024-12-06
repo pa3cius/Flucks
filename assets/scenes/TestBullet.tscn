@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://jm1y1h1t0ami"]
+
+[ext_resource type="Script" path="res://src/TestBullet.gd" id="1_hbqqe"]
+[ext_resource type="PackedScene" uid="uid://lsvbwp72122m" path="res://assets/scenes/TimeFlowComponent.tscn" id="2_ol8ll"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhs7f"]
+
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("time_flow_component") groups=["time_puppet"]]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_hbqqe")
+speed = 200.0
+time_flow_component = NodePath("TimeFlowComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fhs7f")
+
+[node name="TimeFlowComponent" parent="." instance=ExtResource("2_ol8ll")]

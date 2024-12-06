@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkfmowuhxnf1f"]
 
-[ext_resource type="Script" path="res://src/player_dashing_state.gd" id="1_x8t8j"]
+[ext_resource type="Script" path="res://src/player_dashing_state.gd" id="1_0g2h2"]
 
 [node name="PlayerDashingState" type="Node"]
-script = ExtResource("1_x8t8j")
+script = ExtResource("1_0g2h2")
