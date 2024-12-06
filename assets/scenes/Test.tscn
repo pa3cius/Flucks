@@ -1,19 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnexay4qgynsd"]
+[gd_scene load_steps=5 format=3 uid="uid://cnexay4qgynsd"]
 
 [ext_resource type="PackedScene" uid="uid://vb23ciu5eegh" path="res://assets/scenes/Player.tscn" id="1_n1p1h"]
+[ext_resource type="PackedScene" uid="uid://orrmxpo0r5ha" path="res://assets/scenes/TestBulletShidder.tscn" id="2_0vqft"]
+[ext_resource type="PackedScene" uid="uid://cuwkedby3ullm" path="res://assets/scenes/SlowTimeBubble.tscn" id="3_a6dpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6iw8"]
-size = Vector2(1152, 20)
+size = Vector2(7309, 48)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]
+position = Vector2(221, 568)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(577, 610)
+position = Vector2(1675.5, 624)
 shape = SubResource("RectangleShape2D_f6iw8")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]
-position = Vector2(360, 104)
+[node name="TestBulletShidder" parent="." instance=ExtResource("2_0vqft")]
+position = Vector2(46, 465)
+
+[node name="TestBulletShidder2" parent="." instance=ExtResource("2_0vqft")]
+position = Vector2(43, 347)
+
+[node name="SlowTimeBubble" parent="." instance=ExtResource("3_a6dpx")]
+position = Vector2(614, 716)
+collision_mask = 15

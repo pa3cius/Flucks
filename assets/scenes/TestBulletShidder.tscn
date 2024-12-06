@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://orrmxpo0r5ha"]
+
+[ext_resource type="Script" path="res://src/TestBulletShidder.gd" id="1_66acw"]
+[ext_resource type="PackedScene" uid="uid://jm1y1h1t0ami" path="res://assets/scenes/TestBullet.tscn" id="2_qfp7v"]
+[ext_resource type="PackedScene" uid="uid://lsvbwp72122m" path="res://assets/scenes/TimeFlowComponent.tscn" id="3_fqxps"]
+[ext_resource type="Texture2D" uid="uid://b84k3ehkxam10" path="res://icon.svg" id="4_ycv45"]
+
+[node name="TestBulletShidder" type="Node2D" node_paths=PackedStringArray("time_flow_component") groups=["time_puppet"]]
+script = ExtResource("1_66acw")
+bullet = ExtResource("2_qfp7v")
+time_flow_component = NodePath("TimeFlowComponent")
+
+[node name="TimeFlowComponent" parent="." instance=ExtResource("3_fqxps")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.207031, 0.205113)
+texture = ExtResource("4_ycv45")
+
+[connection signal="time_flow_changed" from="TimeFlowComponent" to="." method="_on_time_flow_component_time_flow_changed"]

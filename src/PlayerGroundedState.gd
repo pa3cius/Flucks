@@ -28,6 +28,5 @@ func process_state(delta : float) -> void:
 	if Input.is_action_just_pressed("player_dash"):
 		var vec = Vector2(600, 0) * direction
 		parent.velocity += vec
-	print(parent.velocity.x)
 	parent.move_and_slide()
 	

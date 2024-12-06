@@ -24,8 +24,10 @@ var states_dict = {
 func _ready() -> void:
 	state_machine.set_initial_state(states_dict[player_states.PLAYERAIRBORNESTATE])
 
-#func _process(delta: float) -> void:
-	#print()
+func _process(delta: float) -> void:
+	var time_change := Input.get_axis("ui_down", "ui_up")
+	if time_change:
+		TimeControlComponent.global_time_flow_multiplier += time_change * 0.01
 
 
 func get_state_enum() -> Dictionary:
