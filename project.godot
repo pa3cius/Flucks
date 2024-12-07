@@ -28,6 +28,7 @@ version_control/autoload_on_startup=true
 
 time_puppet="all things that should have their time flow changed"
 player="kinda self explanatory init"
+bullet=""
 
 [input]
 

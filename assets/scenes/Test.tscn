@@ -10,7 +10,7 @@ size = Vector2(7309, 48)
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]
-position = Vector2(221, 568)
+position = Vector2(226, 597)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -23,9 +23,9 @@ shape = SubResource("RectangleShape2D_f6iw8")
 [node name="TestBulletShidder" parent="." instance=ExtResource("2_0vqft")]
 position = Vector2(46, 465)
 
-[node name="TestBulletShidder2" parent="." instance=ExtResource("2_0vqft")]
-position = Vector2(43, 347)
-
 [node name="SlowTimeBubble" parent="." instance=ExtResource("3_a6dpx")]
 position = Vector2(614, 716)
 collision_mask = 15
+
+[node name="TestBulletShidder2" parent="." instance=ExtResource("2_0vqft")]
+position = Vector2(44, 279)

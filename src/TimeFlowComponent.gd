@@ -2,12 +2,14 @@ class_name TimeFlowComponent extends Node
 
 signal time_flow_changed
 
-var time_flow = TimeControlComponent.global_time_flow_multiplier:
+var time_flow = 1 * TimeControlComponent.global_time_flow:
 	set(new_val):
-		time_change = new_val / time_flow
-		time_flow = time_flow * time_change
+		#if get_parent().is_in_group("bullet"):
+			#if time_flow == new_val and get_parent().is_in_bubble:
+		time_flow *= new_val
+		# print(time_flow)
+		time_change = new_val
 		time_flow_changed.emit()
-
 var time_change := 1.0
 
 func _ready() -> void:
@@ -15,12 +17,12 @@ func _ready() -> void:
 
 
 func slow_down() -> void:
-	self.time_flow/=2
+	time_flow = 0.5
 	
 
 func speed_up() -> void:
-	self.time_flow*=2
+	time_flow = 2
 
 
-func _on_global_time_change(global_time_flow : float, _time_change : float) -> void:
-	self.time_flow = global_time_flow
+func _on_global_time_change(global_time_delta : float) -> void:
+	time_flow = global_time_delta

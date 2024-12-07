@@ -2,9 +2,12 @@ extends Node2D
 
 @export var bullet: PackedScene
 @export var time_flow_component: TimeFlowComponent
+var counter = 0
 var timer: Timer
-var base_wait_time: float = 1.0  # Base wait time for the timer
-var new_wait_time : float = base_wait_time
+var base_wait_time: float = 1  # Base wait time for the timer
+var new_wait_time : float = base_wait_time:
+	set(new_val):
+		new_wait_time = new_val
 
 func _ready() -> void:
 	# Create and configure the timer
@@ -16,11 +19,15 @@ func _ready() -> void:
 	timer.start()
 
 func _on_time_flow_component_time_flow_changed() -> void:
-	new_wait_time = base_wait_time / time_flow_component.time_flow
+	print(timer.wait_time, " ", timer.time_left, " ", time_flow_component.time_flow)
+	new_wait_time = 1 / time_flow_component.time_flow
 	timer.wait_time = timer.time_left / time_flow_component.time_change
+	print(new_wait_time, " ", timer.wait_time)
 	timer.start()  # Restart the timer to apply changes
 
 func _on_timer_timeout() -> void:
+	
 	timer.wait_time = new_wait_time
-	add_child(bullet.instantiate())
+	var bullet_instance = bullet.instantiate() as Area2D
+	add_child(bullet_instance)
 	timer.start()

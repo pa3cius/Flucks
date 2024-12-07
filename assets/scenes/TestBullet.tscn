@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhs7f"]
 
-[node name="Bullet" type="Area2D" node_paths=PackedStringArray("time_flow_component") groups=["time_puppet"]]
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("time_flow_component") groups=["bullet", "time_puppet"]]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_hbqqe")
