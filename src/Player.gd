@@ -24,7 +24,7 @@ var states_dict = {
 }
 
 func _ready() -> void:
-	state_machine.set_initial_state(states_dict[player_states.PLAYERAIRBORNESTATE])
+	state_machine.set_initial_state(states_dict[player_states.PLAYERGROUNDEDSTATE])
 
 func _process(delta: float) -> void:
 	var time_change := Input.get_axis("ui_down", "ui_up")
