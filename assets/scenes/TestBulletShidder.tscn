@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://lsvbwp72122m" path="res://assets/scenes/TimeFlowComponent.tscn" id="3_fqxps"]
 [ext_resource type="Texture2D" uid="uid://b84k3ehkxam10" path="res://icon.svg" id="4_ycv45"]
 
-[node name="TestBulletShidder" type="Node2D" node_paths=PackedStringArray("time_flow_component") groups=["time_puppet"]]
+[node name="TestBulletShidder" type="CharacterBody2D" node_paths=PackedStringArray("time_flow_component") groups=["time_puppet"]]
 script = ExtResource("1_66acw")
 bullet = ExtResource("2_qfp7v")
 time_flow_component = NodePath("TimeFlowComponent")
