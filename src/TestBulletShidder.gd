@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var bullet: PackedScene
 @export var time_flow_component: TimeFlowComponent
