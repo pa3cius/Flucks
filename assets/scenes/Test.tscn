@@ -13,7 +13,7 @@ size = Vector2(9084, 41)
 [node name="QuickTimeBubble" parent="." instance=ExtResource("1_4oa7o")]
 position = Vector2(684, 730)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]
+[node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("1_n1p1h")]
 position = Vector2(226, 597)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

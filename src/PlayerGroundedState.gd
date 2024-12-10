@@ -1,5 +1,6 @@
 class_name PlayerGroundedState extends BaseState
 
+
 func enter_state() -> void:
 	pass
 	# parent.animation_player.play("")
@@ -25,8 +26,12 @@ func process_state(delta : float) -> void:
 	if Input.is_action_just_pressed("player_jump"):
 		parent.velocity.y += parent.JUMP_STRENGTH * -1
 		state_machine.transition_to_state(state_machine.parent_enum.PLAYERAIRBORNESTATE)
+		
+	#DASH CODE
 	if Input.is_action_just_pressed("player_dash"):
-		var vec = Vector2(600, 0) * direction
+		var vec = Vector2(parent.DASH_POWER, 0) * direction
 		parent.velocity += vec
 	parent.move_and_slide()
+
+		
 	

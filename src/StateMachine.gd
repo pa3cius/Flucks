@@ -1,6 +1,7 @@
 class_name StateMachine extends Node
 
 var current_state : BaseState
+
 @onready var parent_enum = get_parent().get_state_enum()
 @onready var parent_state_dict = get_parent().get_state_dict()
 

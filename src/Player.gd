@@ -4,6 +4,8 @@ class_name Player extends CharacterBody2D
 @export var state_machine : StateMachine
 @export var SPEED := 300.0
 @export var MAX_SPEED := 300.0
+@export var DASH_POWER := 600.0
+
 
 @export var JUMP_STRENGTH := 400.0
 @export var DOUBLE_JUMP_STRENGTH := 300.0
