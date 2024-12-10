@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vb23ciu5eegh"]
+[gd_scene load_steps=14 format=3 uid="uid://vb23ciu5eegh"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_ennt3"]
 [ext_resource type="PackedScene" uid="uid://cqk786vovvdg0" path="res://assets/scenes/StateMachine.tscn" id="2_4qddg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vovrf86akpi" path="res://assets/scenes/PlayerGroundedState.tscn" id="5_ewyuu"]
 [ext_resource type="PackedScene" uid="uid://v2cu0getotjl" path="res://assets/scenes/PlayerAirborneState.tscn" id="5_fh50u"]
 [ext_resource type="Texture2D" uid="uid://crvknjdf0k5r8" path="res://assets/Images/ninja_gestures1.png" id="8_r6umv"]
+[ext_resource type="PackedScene" uid="uid://bqk7dvf5t16rk" path="res://assets/scenes/TimeControlComponent.tscn" id="8_rvadk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3cpm"]
 size = Vector2(39, 52)
@@ -62,3 +63,5 @@ hitbox = NodePath("../CollisionShape2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n5ptk")
 frame_progress = 0.579792
+
+[node name="TimeControlComponent" parent="." instance=ExtResource("8_rvadk")]

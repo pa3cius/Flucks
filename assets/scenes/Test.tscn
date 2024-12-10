@@ -6,22 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://cuwkedby3ullm" path="res://assets/scenes/SlowTimeBubble.tscn" id="3_a6dpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6iw8"]
-size = Vector2(7309, 48)
+size = Vector2(9084, 41)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="QuickTimeBubble" parent="." instance=ExtResource("1_4oa7o")]
-position = Vector2(655, 746)
+position = Vector2(684, 730)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_n1p1h")]
+[node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("1_n1p1h")]
 position = Vector2(226, 597)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1675.5, 624)
+position = Vector2(788, 620.5)
 shape = SubResource("RectangleShape2D_f6iw8")
 
 [node name="TestBulletShidder" parent="." instance=ExtResource("2_0vqft")]
