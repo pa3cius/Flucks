@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbwqt6d170ivs"]
+
+[ext_resource type="Texture2D" uid="uid://c51dvlim5uese" path="res://assets/Image/ninja gestures.png" id="1_cly3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqax4"]
+atlas = ExtResource("1_cly3v")
+region = Rect2(22, 0, 90, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wevl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqax4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wevl")
