@@ -11,16 +11,16 @@ func _ready() -> void:
 			child.set_parent(get_parent())
 			
 # In the state machine script
-func transition_to_state(state_enum):
+func transition_to_state(state_enum) -> void:
 	var state = parent_state_dict[state_enum]
 	transition_to(state)
 
 
-func set_initial_state(state_name: String):
-	current_state = get_node(state_name)
+func set_initial_state(state_enum) -> void:
+	current_state = get_node(parent_state_dict[state_enum])
 	current_state.enter_state()
 
-func transition_to(new_state: String):
+func transition_to(new_state: String) -> void:
 	if current_state:
 		current_state.exit_state()
 	current_state = get_node(new_state)
